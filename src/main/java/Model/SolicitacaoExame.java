@@ -3,14 +3,14 @@ package Model;
 import java.sql.Date;
 
 public class SolicitacaoExame extends GenericModel {
-    private String nm_prescito;
+    private String nm_prescrito;
     private Integer consulta_medica_id;
     private Date dt_solicitacao;
     private Integer habilitacao_exame_id;
     private Integer exame_id;
 
-    public SolicitacaoExame(Integer id, String nm_prescito, Integer consulta_medica_id, Date dt_solicitacao, Integer habilitacao_exame_id, Integer exame_id) {
-        this.nm_prescito = nm_prescito;
+    public SolicitacaoExame(Integer id, String nm_prescrito, Integer consulta_medica_id, Date dt_solicitacao, Integer habilitacao_exame_id, Integer exame_id) {
+        this.nm_prescrito = nm_prescrito;
         this.consulta_medica_id = consulta_medica_id;
         this.dt_solicitacao = dt_solicitacao;
         this.habilitacao_exame_id = habilitacao_exame_id;
@@ -18,12 +18,12 @@ public class SolicitacaoExame extends GenericModel {
         super.setId(id);
     }
 
-    public String getNm_prescito() {
-        return nm_prescito;
+    public String getNm_prescrito() {
+        return nm_prescrito;
     }
 
-    public void setNm_prescito(String nm_prescito) {
-        this.nm_prescito = nm_prescito;
+    public void setNm_prescrito(String nm_prescito) {
+        this.nm_prescrito = nm_prescito;
     }
 
     public Integer getConsulta_medica_id() {
@@ -62,7 +62,7 @@ public class SolicitacaoExame extends GenericModel {
     public String toString() {
         return "SolicitacaoExame{" +
                 "id'" + this.getId() + "\'" +
-                "nm_prescito='" + nm_prescito + '\'' +
+                "nm_prescito='" + nm_prescrito + '\'' +
                 ", consulta_medica_id=" + consulta_medica_id +
                 ", dt_solicitacao=" + dt_solicitacao +
                 ", habilitacao_exame_id=" + habilitacao_exame_id +

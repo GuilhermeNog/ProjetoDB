@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MaterialExameDAO extends ConexaoDB {
-    private static final String INSERT_MATERIALEXAME_SQL = "INSERT INTO materialexame (material, observacao) VALUES (?, ?);";
-    private static final String SELECT_MATERIALEXAME_BY_ID = "SELECT id, material, observacao FROM materialexame WHERE id = ?";
-    private static final String SELECT_ALL_MATERIALEXAME = "SELECT * FROM materialexame;";
-    private static final String DELETE_MATERIALEXAME_SQL = "DELETE FROM materialexame WHERE id = ?;";
-    private static final String UPDATE_MATERIALEXAME_SQL = "UPDATE materialexame SET material = ?, observacao = ? WHERE id = ?;";
-    private static final String TOTAL = "SELECT count(1) FROM materialexame;";
+    private static final String INSERT_MATERIALEXAME_SQL = "INSERT INTO material_exame (material, obsercavao) VALUES (?, ?);";
+    private static final String SELECT_MATERIALEXAME_BY_ID = "SELECT id, material, obsercavao FROM material_exame WHERE id = ?";
+    private static final String SELECT_ALL_MATERIALEXAME = "SELECT * FROM material_exame;";
+    private static final String DELETE_MATERIALEXAME_SQL = "DELETE FROM material_exame WHERE id = ?;";
+    private static final String UPDATE_MATERIALEXAME_SQL = "UPDATE material_exame SET material = ?, obsercavao = ? WHERE id = ?;";
+    private static final String TOTAL = "SELECT count(1) FROM material_exame;";
 
     public Integer count() {
         Integer count = 0;
@@ -36,7 +36,7 @@ public class MaterialExameDAO extends ConexaoDB {
     public void insertMaterialExame(MaterialExame entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_MATERIALEXAME_SQL)) {
             preparedStatement.setString(1, entidade.getMaterial());
-            preparedStatement.setString(2, entidade.getObservacao());
+            preparedStatement.setString(2, entidade.getObsercavao());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -53,9 +53,9 @@ public class MaterialExameDAO extends ConexaoDB {
 
             while (rs.next()) {
                 String material = rs.getString("material");
-                String observacao = rs.getString("observacao");
+                String obsercavao = rs.getString("obsercavao");
 
-                entidade = new MaterialExame(id, material, observacao);
+                entidade = new MaterialExame(id, material, obsercavao);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -72,9 +72,9 @@ public class MaterialExameDAO extends ConexaoDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String material = rs.getString("material");
-                String observacao = rs.getString("observacao");
+                String obsercavao = rs.getString("obsercavao");
 
-                entidades.add(new MaterialExame(id, material, observacao));
+                entidades.add(new MaterialExame(id, material, obsercavao));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -96,7 +96,7 @@ public class MaterialExameDAO extends ConexaoDB {
     public boolean updateMaterialExame(MaterialExame entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_MATERIALEXAME_SQL)) {
             statement.setString(1, entidade.getMaterial());
-            statement.setString(2, entidade.getObservacao());
+            statement.setString(2, entidade.getObsercavao());
 
             return statement.executeUpdate() > 0;
         } catch (ClassNotFoundException e) {

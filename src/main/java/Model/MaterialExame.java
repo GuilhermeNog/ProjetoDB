@@ -2,11 +2,11 @@ package Model;
 
 public class MaterialExame extends GenericModel {
     private String material;
-    private String observacao;
+    private String obsercavao;
 
-    public MaterialExame(Integer id, String material, String observacao) {
+    public MaterialExame(Integer id, String material, String obsercavao) {
         this.material = material;
-        this.observacao = observacao;
+        this.obsercavao = obsercavao;
         super.setId(id);
     }
 
@@ -18,12 +18,12 @@ public class MaterialExame extends GenericModel {
         this.material = material;
     }
 
-    public String getObservacao() {
-        return observacao;
+    public String getObsercavao() {
+        return obsercavao;
     }
 
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
+    public void setObsercavao(String observacao) {
+        this.obsercavao = observacao;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class MaterialExame extends GenericModel {
         return "MaterialExame{" +
                 "id'" + this.getId() + "\'" +
                 "material='" + material + '\'' +
-                ", observacao='" + observacao + '\'' +
+                ", observacao='" + obsercavao + '\'' +
                 '}';
     }
 }

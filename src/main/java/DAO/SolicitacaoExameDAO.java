@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SolicitacaoExameDAO extends ConexaoDB {
-    private static final String INSERT_SOLICITACAOEXAME_SQL = "INSERT INTO solicitacaoexame (nm_prescito, consulta_medica_id, dt_solicitacao, habilitacao_exame_id, exame_id) VALUES (?);";
-    private static final String SELECT_SOLICITACAOEXAME_BY_ID = "SELECT id, nm_prescito, consulta_medica_id, dt_solicitacao, habilitacao_exame_id, exame_id FROM solicitacaoexame WHERE id = ?";
-    private static final String SELECT_ALL_SOLICITACAOEXAME = "SELECT * FROM solicitacaoexame;";
-    private static final String DELETE_SOLICITACAOEXAME_SQL = "DELETE FROM solicitacaoexame WHERE id = ?;";
-    private static final String UPDATE_SOLICITACAOEXAME_SQL = "UPDATE solicitacaoexame SET nm_prescito = ?, consulta_medica_id = ?, dt_solicitacao = ?, habilitacao_exame_id = ?, exame_id = ? WHERE id = ?;";
-    private static final String TOTAL = "SELECT count(1) FROM solicitacaoexame;";
+    private static final String INSERT_SOLICITACAOEXAME_SQL = "INSERT INTO solicitacao_exame (nm_prescrito, consulta_medica_id, dt_solicitacao, habilitacao_exame_id, exame_id) VALUES (?, ?, ?, ?, ?);";
+    private static final String SELECT_SOLICITACAOEXAME_BY_ID = "SELECT id, nm_prescrito, consulta_medica_id, dt_solicitacao, habilitacao_exame_id, exame_id FROM solicitacao_exame WHERE id = ?";
+    private static final String SELECT_ALL_SOLICITACAOEXAME = "SELECT * FROM solicitacao_exame;";
+    private static final String DELETE_SOLICITACAOEXAME_SQL = "DELETE FROM solicitacao_exame WHERE id = ?;";
+    private static final String UPDATE_SOLICITACAOEXAME_SQL = "UPDATE solicitacao_exame SET nm_prescrito = ?, consulta_medica_id = ?, dt_solicitacao = ?, habilitacao_exame_id = ?, exame_id = ? WHERE id = ?;";
+    private static final String TOTAL = "SELECT count(1) FROM solicitacao_exame;";
 
     public Integer count() {
         Integer count = 0;
@@ -35,7 +35,7 @@ public class SolicitacaoExameDAO extends ConexaoDB {
 
     public void insertSolicitacaoExame(SolicitacaoExame entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_SOLICITACAOEXAME_SQL)) {
-            preparedStatement.setString(1, entidade.getNm_prescito());
+            preparedStatement.setString(1, entidade.getNm_prescrito());
             preparedStatement.setInt(2, entidade.getConsulta_medica_id());
             preparedStatement.setDate(3, entidade.getDt_solicitacao());
             preparedStatement.setInt(4, entidade.getHabilitacao_exame_id());
@@ -55,13 +55,13 @@ public class SolicitacaoExameDAO extends ConexaoDB {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                String nm_prescito = rs.getString("nm_prescito");
+                String nm_prescrito = rs.getString("nm_prescrito");
                 Integer consulta_medica_id = rs.getInt("consulta_medica_id");
                 Date dt_solicitacao = rs.getDate("dt_solicitacao");
                 Integer habilitacao_exame_id = rs.getInt("habilitacao_exame_id");
                 Integer exame_id = rs.getInt("exame_id");
 
-                entidade = new SolicitacaoExame(id, nm_prescito, consulta_medica_id, dt_solicitacao, habilitacao_exame_id, exame_id);
+                entidade = new SolicitacaoExame(id, nm_prescrito, consulta_medica_id, dt_solicitacao, habilitacao_exame_id, exame_id);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -77,13 +77,13 @@ public class SolicitacaoExameDAO extends ConexaoDB {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String nm_prescito = rs.getString("nm_prescito");
+                String nm_prescrito = rs.getString("nm_prescrito");
                 Integer consulta_medica_id = rs.getInt("consulta_medica_id");
                 Date dt_solicitacao = rs.getDate("dt_solicitacao");
                 Integer habilitacao_exame_id = rs.getInt("habilitacao_exame_id");
                 Integer exame_id = rs.getInt("exame_id");
 
-                entidades.add(new SolicitacaoExame(id, nm_prescito, consulta_medica_id, dt_solicitacao, habilitacao_exame_id, exame_id));
+                entidades.add(new SolicitacaoExame(id, nm_prescrito, consulta_medica_id, dt_solicitacao, habilitacao_exame_id, exame_id));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -104,7 +104,7 @@ public class SolicitacaoExameDAO extends ConexaoDB {
 
     public boolean updateSolicitacaoExame(SolicitacaoExame entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_SOLICITACAOEXAME_SQL)) {
-            statement.setString(1, entidade.getNm_prescito());
+            statement.setString(1, entidade.getNm_prescrito());
             statement.setInt(2, entidade.getConsulta_medica_id());
             statement.setDate(3, entidade.getDt_solicitacao());
             statement.setInt(4, entidade.getHabilitacao_exame_id());

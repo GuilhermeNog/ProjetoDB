@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResultadoExameDAO extends ConexaoDB {
-    private static final String INSERT_RESULTADOEXAME_SQL = "INSERT INTO resultadoexame (dt_exame, valor, composicao_id, laudo_id) VALUES (?, ?, ?, ?);";
-    private static final String SELECT_RESULTADOEXAME_BY_ID = "SELECT id, dt_exame, valor, composicao_id, laudo_id FROM resultadoexame WHERE id = ?";
-    private static final String SELECT_ALL_RESULTADOEXAME = "SELECT * FROM resultadoexame;";
-    private static final String DELETE_RESULTADOEXAME_SQL = "DELETE FROM resultadoexame WHERE id = ?;";
-    private static final String UPDATE_RESULTADOEXAME_SQL = "UPDATE resultadoexame SET dt_exame = ?, valor = ?, composicao_id = ?, laudo_id = ? WHERE id = ?;";
-    private static final String TOTAL = "SELECT count(1) FROM resultadoexame;";
+    private static final String INSERT_RESULTADOEXAME_SQL = "INSERT INTO resultado_exame (dt_exame, valor, composicao_id, laudo_id) VALUES (?, ?, ?, ?);";
+    private static final String SELECT_RESULTADOEXAME_BY_ID = "SELECT id, dt_exame, valor, composicao_id, laudo_id FROM resultado_exame WHERE id = ?";
+    private static final String SELECT_ALL_RESULTADOEXAME = "SELECT * FROM resultado_exame;";
+    private static final String DELETE_RESULTADOEXAME_SQL = "DELETE FROM resultado_exame WHERE id = ?;";
+    private static final String UPDATE_RESULTADOEXAME_SQL = "UPDATE resultado_exame SET dt_exame = ?, valor = ?, composicao_id = ?, laudo_id = ? WHERE id = ?;";
+    private static final String TOTAL = "SELECT count(1) FROM resultado_exame;";
 
     public Integer count() {
         Integer count = 0;
@@ -35,8 +35,8 @@ public class ResultadoExameDAO extends ConexaoDB {
 
     public void insertResultadoExame(ResultadoExame entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_RESULTADOEXAME_SQL)) {
-            preparedStatement.setDate(2, entidade.getDt_exame());
-            preparedStatement.setString(1, entidade.getValor());
+            preparedStatement.setDate(1, entidade.getDt_exame());
+            preparedStatement.setString(2, entidade.getValor());
             preparedStatement.setInt(3, entidade.getComposicao_id());
             preparedStatement.setInt(4, entidade.getLaudo_id());
             preparedStatement.executeUpdate();

@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ComposicaoExameDAO extends ConexaoDB {
-    private static final String INSERT_COMPOSICAOEXAME_SQL = "INSERT INTO composicaoexame (descricao, unidade_medida_id) VALUES (?, ?);";
-    private static final String SELECT_COMPOSICAOEXAME_BY_ID = "SELECT id, descricao, unidade_medida_id FROM composicaoexame WHERE id = ?";
-    private static final String SELECT_ALL_COMPOSICAOEXAME = "SELECT * FROM composicaoexame;";
-    private static final String DELETE_COMPOSICAOEXAME_SQL = "DELETE FROM composicaoexame WHERE id = ?;";
-    private static final String UPDATE_COMPOSICAOEXAME_SQL = "UPDATE composicaoexame SET descricao = ?, unidade_medida_id = ? WHERE id = ?;";
-    private static final String TOTAL = "SELECT count(1) FROM composicaoexame;";
+    private static final String INSERT_COMPOSICAOEXAME_SQL = "INSERT INTO composicao_exame (descricao, unidade_medida_id) VALUES (?, ?);";
+    private static final String SELECT_COMPOSICAOEXAME_BY_ID = "SELECT id, descricao, unidade_medida_id FROM composicao_exame WHERE id = ?";
+    private static final String SELECT_ALL_COMPOSICAOEXAME = "SELECT * FROM composicao_exame;";
+    private static final String DELETE_COMPOSICAOEXAME_SQL = "DELETE FROM composicao_exame WHERE id = ?;";
+    private static final String UPDATE_COMPOSICAOEXAME_SQL = "UPDATE composicao_exame SET descricao = ?, unidade_medida_id = ? WHERE id = ?;";
+    private static final String TOTAL = "SELECT count(1) FROM composicao_exame;";
 
     public Integer count() {
         Integer count = 0;

@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ValorReferenciaComposicaoExameDAO extends ConexaoDB {
-    private static final String INSERT_VALORREFERENCIACOMPOSICAOEXAME_SQL = "INSERT INTO valorreferenciacomposicaoexame (valor_minimo, valor_maximo, limitador_minimo, limitador_maximo, unidade_medida_id) VALUES (?, ?, ?, ?, ?);";
-    private static final String SELECT_VALORREFERENCIACOMPOSICAOEXAME_BY_ID = "SELECT id, valor_minimo, valor_maximo, limitador_minimo, limitador_maximo, unidade_medida_id FROM valorreferenciacomposicaoexame WHERE id = ?";
-    private static final String SELECT_ALL_VALORREFERENCIACOMPOSICAOEXAME = "SELECT * FROM valorreferenciacomposicaoexame;";
-    private static final String DELETE_VALORREFERENCIACOMPOSICAOEXAME_SQL = "DELETE FROM valorreferenciacomposicaoexame WHERE id = ?;";
-    private static final String UPDATE_VALORREFERENCIACOMPOSICAOEXAME_SQL = "UPDATE valorreferenciacomposicaoexame SET valor_minimo = ?, valor_maximo = ?, limitador_minimo = ?, limitador_maximo = ?, unidade_medida_id = ?, WHERE id = ?;";
-    private static final String TOTAL = "SELECT count(1) FROM valorreferenciacomposicaoexame;";
+    private static final String INSERT_VALORREFERENCIACOMPOSICAOEXAME_SQL = "INSERT INTO valor_referencia_composicao_exame (valor_minimo, valor_maximo, limitador_minimo, limitador_maximo, unidade_medida_id) VALUES (?, ?, ?, ?, ?);";
+    private static final String SELECT_VALORREFERENCIACOMPOSICAOEXAME_BY_ID = "SELECT id, valor_minimo, valor_maximo, limitador_minimo, limitador_maximo, unidade_medida_id FROM valor_referencia_composicao_exame WHERE id = ?";
+    private static final String SELECT_ALL_VALORREFERENCIACOMPOSICAOEXAME = "SELECT * FROM valor_referencia_composicao_exame;";
+    private static final String DELETE_VALORREFERENCIACOMPOSICAOEXAME_SQL = "DELETE FROM valor_referencia_composicao_exame WHERE id = ?;";
+    private static final String UPDATE_VALORREFERENCIACOMPOSICAOEXAME_SQL = "UPDATE valor_referencia_composicao_exame SET valor_minimo = ?, valor_maximo = ?, limitador_minimo = ?, limitador_maximo = ?, unidade_medida_id = ?, WHERE id = ?;";
+    private static final String TOTAL = "SELECT count(1) FROM valor_referencia_composicao_exame;";
 
     public Integer count() {
         Integer count = 0;

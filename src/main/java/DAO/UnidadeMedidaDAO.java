@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UnidadeMedidaDAO extends ConexaoDB {
-    private static final String INSERT_UNIDADEMEDIDA_SQL = "INSERT INTO unidademedida (descricao) VALUES (?);";
-    private static final String SELECT_UNIDADEMEDIDA_BY_ID = "SELECT id, descricao FROM unidademedida WHERE id = ?";
-    private static final String SELECT_ALL_UNIDADEMEDIDA = "SELECT * FROM unidademedida;";
-    private static final String DELETE_UNIDADEMEDIDA_SQL = "DELETE FROM unidademedida WHERE id = ?;";
-    private static final String UPDATE_UNIDADEMEDIDA_SQL = "UPDATE unidademedida SET descricao = ? WHERE id = ?;";
-    private static final String TOTAL = "SELECT count(1) FROM unidademedida;";
+    private static final String INSERT_UNIDADEMEDIDA_SQL = "INSERT INTO unidade_medida (descricao) VALUES (?);";
+    private static final String SELECT_UNIDADEMEDIDA_BY_ID = "SELECT id, descricao FROM unidade_medida WHERE id = ?";
+    private static final String SELECT_ALL_UNIDADEMEDIDA = "SELECT * FROM unidade_medida;";
+    private static final String DELETE_UNIDADEMEDIDA_SQL = "DELETE FROM unidade_medida WHERE id = ?;";
+    private static final String UPDATE_UNIDADEMEDIDA_SQL = "UPDATE unidade_medida SET descricao = ? WHERE id = ?;";
+    private static final String TOTAL = "SELECT count(1) FROM unidade_medida;";
 
     public Integer count() {
         Integer count = 0;
