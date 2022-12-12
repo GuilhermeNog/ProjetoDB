@@ -2,6 +2,7 @@ package util;
 
 import DAO.HabilitacaoExameDAO;
 import Model.HabilitacaoExame;
+import Service.HabilitacaoExameService;
 
 import java.math.BigInteger;
 import java.sql.SQLException;
@@ -10,6 +11,8 @@ import java.util.List;
 public class TesteHabilitacaoExameDAO {
     static HabilitacaoExameDAO habilitacaoExameDAO = new HabilitacaoExameDAO();
 
+    static HabilitacaoExameService habilitacaoExameService = new HabilitacaoExameService();
+
     public static void main(String[] args) throws SQLException {
 
         //count
@@ -17,7 +20,7 @@ public class TesteHabilitacaoExameDAO {
 
         //salvar
         HabilitacaoExame habilitacaoExame = new HabilitacaoExame(1, "teste observacao", BigInteger.valueOf(10), 1, 1);
-        habilitacaoExameDAO.insertHabilitacaoExame(habilitacaoExame);
+        habilitacaoExameService.insert(habilitacaoExame);
 
         //buscar por ID
         habilitacaoExame = habilitacaoExameDAO.selectHabilitacaoExame(2);

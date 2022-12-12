@@ -1,15 +1,16 @@
 package util;
 
 import DAO.ComposicaoDAO;
-import DAO.ComposicaoExameDAO;
 import Model.Composicao;
-import Model.ComposicaoExame;
+import Service.ComposicaoService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteComposicaoDAO {
     static ComposicaoDAO composicaoDAO = new ComposicaoDAO();
+
+    static ComposicaoService composicaoService = new ComposicaoService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -18,7 +19,7 @@ public class TesteComposicaoDAO {
 
         //salvar
         Composicao composicao = new Composicao(1, 1, 1, 1);
-        composicaoDAO.insertComposicao(composicao);
+        composicaoService.insert(composicao);
 
         //buscar por ID
         composicao = composicaoDAO.selectComposicao(2);

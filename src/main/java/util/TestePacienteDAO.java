@@ -1,18 +1,17 @@
 package util;
 
-import DAO.MedicoDAO;
 import DAO.PacienteDAO;
-import Model.Medico;
 import Model.Paciente;
-import Service.MedicoService;
+import Service.PacienteService;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.util.List;
 
 public class TestePacienteDAO {
     static PacienteDAO pacienteDAO = new PacienteDAO();
+
+    static PacienteService pacienteService = new PacienteService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -21,7 +20,7 @@ public class TestePacienteDAO {
 
         //salvar
         Paciente paciente = new Paciente(1, "teste nome", new Date(2022, 1, 12));
-        pacienteDAO.insertPaciente(paciente);
+        pacienteService.insert(paciente);
 
         //buscar por ID
         paciente = pacienteDAO.selectPaciente(2);

@@ -1,15 +1,16 @@
 package util;
 
-import DAO.ContatoDAO;
 import DAO.SiglaFormacaoDAO;
-import Model.Contato;
 import Model.SiglaFormacao;
+import Service.SiglaFormacaoService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteSiglaFormacaoDAO {
     static SiglaFormacaoDAO siglaFormacaoDAO = new SiglaFormacaoDAO();
+
+    static SiglaFormacaoService siglaFormacaoService = new SiglaFormacaoService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -18,7 +19,7 @@ public class TesteSiglaFormacaoDAO {
 
         //salvar
         SiglaFormacao siglaFormacao = new SiglaFormacao(1, "SIGLA");
-        siglaFormacaoDAO.insertSiglaFormacao(siglaFormacao);
+        siglaFormacaoService.insert(siglaFormacao);
 
         //buscar por ID
         siglaFormacao = siglaFormacaoDAO.selectSiglaFormacao(2);

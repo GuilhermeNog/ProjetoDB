@@ -1,6 +1,5 @@
 package DAO;
 
-import Model.Especialidade;
 import Model.MedicoHasEspecialidade;
 
 import java.sql.PreparedStatement;

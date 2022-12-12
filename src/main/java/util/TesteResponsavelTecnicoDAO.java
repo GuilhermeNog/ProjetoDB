@@ -1,15 +1,16 @@
 package util;
 
 import DAO.ResponsavelTecnicoDAO;
-import DAO.SiglaFormacaoDAO;
 import Model.ResponsavelTecnico;
-import Model.SiglaFormacao;
+import Service.ResponsavelTecnicoService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteResponsavelTecnicoDAO {
     static ResponsavelTecnicoDAO responsavelTecnicoDAO = new ResponsavelTecnicoDAO();
+
+    static ResponsavelTecnicoService responsavelTecnicoService = new ResponsavelTecnicoService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -18,7 +19,7 @@ public class TesteResponsavelTecnicoDAO {
 
         //salvar
         ResponsavelTecnico responsavelTecnico = new ResponsavelTecnico(1, "teste nome", "teste conselho", "teste formacao", 1);
-        responsavelTecnicoDAO.insertResponsavelTecnico(responsavelTecnico);
+        responsavelTecnicoService.insert(responsavelTecnico);
 
         //buscar por ID
         responsavelTecnico = responsavelTecnicoDAO.selectResponsavelTecnico(2);

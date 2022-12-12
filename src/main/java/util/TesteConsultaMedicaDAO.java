@@ -1,9 +1,8 @@
 package util;
 
 import DAO.ConsultaMedicaDAO;
-import DAO.PacienteDAO;
 import Model.ConsultaMedica;
-import Model.Paciente;
+import Service.ConsultaMedicaService;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -12,6 +11,8 @@ import java.util.List;
 public class TesteConsultaMedicaDAO {
     static ConsultaMedicaDAO consultaMedicaDAO = new ConsultaMedicaDAO();
 
+    static ConsultaMedicaService consultaMedicaService = new ConsultaMedicaService();
+
     public static void main(String[] args) throws SQLException {
 
         //count
@@ -19,7 +20,7 @@ public class TesteConsultaMedicaDAO {
 
         //salvar
         ConsultaMedica consultaMedica = new ConsultaMedica(1, new Date(2022, 1, 12), 1, 1, "teste nm_atendimento");
-        consultaMedicaDAO.insertConsultaMedica(consultaMedica);
+        consultaMedicaService.insert(consultaMedica);
 
         //buscar por ID
         consultaMedica = consultaMedicaDAO.selectConsultaMedica(2);

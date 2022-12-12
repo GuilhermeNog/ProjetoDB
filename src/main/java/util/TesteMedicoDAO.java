@@ -1,10 +1,7 @@
 package util;
 
-import DAO.EspecialidadeDAO;
 import DAO.MedicoDAO;
-import Model.Especialidade;
 import Model.Medico;
-import Service.LaboratorioService;
 import Service.MedicoService;
 
 import java.sql.SQLException;

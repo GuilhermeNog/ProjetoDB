@@ -1,6 +1,5 @@
 package util;
 
-import DAO.ConexaoDB;
 import DAO.LaboratorioDAO;
 import Model.Laboratorio;
 import Service.LaboratorioService;

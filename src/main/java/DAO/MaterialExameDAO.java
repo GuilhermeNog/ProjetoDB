@@ -2,7 +2,6 @@ package DAO;
 
 import Model.MaterialExame;
 
-import java.math.BigInteger;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +32,7 @@ public class MaterialExameDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertMaterialExame(MaterialExame entidade) {
+    public MaterialExame insertMaterialExame(MaterialExame entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_MATERIALEXAME_SQL)) {
             preparedStatement.setString(1, entidade.getMaterial());
             preparedStatement.setString(2, entidade.getObsercavao());
@@ -43,6 +42,7 @@ public class MaterialExameDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return entidade;
     }
 
     public MaterialExame selectMaterialExame(int id) {

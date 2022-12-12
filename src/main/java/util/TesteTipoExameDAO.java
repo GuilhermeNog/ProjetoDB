@@ -1,16 +1,16 @@
 package util;
 
-import DAO.ConsultaMedicaDAO;
 import DAO.TipoExameDAO;
-import Model.ConsultaMedica;
 import Model.TipoExame;
+import Service.TipoExameService;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteTipoExameDAO {
     static TipoExameDAO tipoExameDAO = new TipoExameDAO();
+
+    static TipoExameService tipoExameService = new TipoExameService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -19,7 +19,7 @@ public class TesteTipoExameDAO {
 
         //salvar
         TipoExame tipoExame = new TipoExame(1, "teste descricao", "teste observacao");
-        tipoExameDAO.insertTipoExame(tipoExame);
+        tipoExameService.insert(tipoExame);
 
         //buscar por ID
         tipoExame = tipoExameDAO.selectTipoExame(2);

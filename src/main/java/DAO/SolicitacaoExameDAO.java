@@ -33,7 +33,7 @@ public class SolicitacaoExameDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertSolicitacaoExame(SolicitacaoExame entidade) {
+    public SolicitacaoExame insertSolicitacaoExame(SolicitacaoExame entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_SOLICITACAOEXAME_SQL)) {
             preparedStatement.setString(1, entidade.getNm_prescrito());
             preparedStatement.setInt(2, entidade.getConsulta_medica_id());
@@ -46,6 +46,7 @@ public class SolicitacaoExameDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return entidade;
     }
 
     public SolicitacaoExame selectSolicitacaoExame(int id) {

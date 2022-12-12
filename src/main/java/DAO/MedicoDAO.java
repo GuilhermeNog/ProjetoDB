@@ -1,7 +1,6 @@
 package DAO;
 
 import Model.Medico;
-import Model.SiglaFormacao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

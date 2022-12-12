@@ -1,7 +1,6 @@
 package DAO;
 
 import Model.ResponsavelTecnico;
-import Model.ResponsavelTecnicoHasLaboratorio;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,7 +32,7 @@ public class ResponsavelTecnicoDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertResponsavelTecnico(ResponsavelTecnico entidade) {
+    public ResponsavelTecnico insertResponsavelTecnico(ResponsavelTecnico entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_RESPONSAVELTECNICO_SQL, java.sql.Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, entidade.getNome());
             preparedStatement.setString(2, entidade.getConselho());
@@ -50,6 +49,8 @@ public class ResponsavelTecnicoDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+        return entidade;
     }
 
     public ResponsavelTecnico selectResponsavelTecnico(int id) {

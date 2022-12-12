@@ -32,7 +32,7 @@ public class ComposicaoDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertComposicao(Composicao entidade) {
+    public Composicao insertComposicao(Composicao entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_COMPOSICAO_SQL)) {
             preparedStatement.setInt(1, entidade.getExame_id());
             preparedStatement.setInt(2, entidade.getComposicao_exame_id());
@@ -43,6 +43,7 @@ public class ComposicaoDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return entidade;
     }
 
     public Composicao selectComposicao(int id) {

@@ -33,7 +33,7 @@ public class LaudoDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertLaudo(Laudo entidade) {
+    public Laudo insertLaudo(Laudo entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_LAUDO_SQL)) {
             preparedStatement.setString(1, entidade.getAssinatura_digital());
             preparedStatement.setDate(2, entidade.getDt_resultado());
@@ -45,6 +45,7 @@ public class LaudoDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return entidade;
     }
 
     public Laudo selectLaudo(int id) {

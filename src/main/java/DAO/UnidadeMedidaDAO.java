@@ -1,9 +1,7 @@
 package DAO;
 
-import Model.Exame;
 import Model.UnidadeMedida;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,7 +32,7 @@ public class UnidadeMedidaDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertUnidadeMedida(UnidadeMedida entidade) {
+    public UnidadeMedida insertUnidadeMedida(UnidadeMedida entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_UNIDADEMEDIDA_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.executeUpdate();
@@ -43,6 +41,7 @@ public class UnidadeMedidaDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return entidade;
     }
 
     public UnidadeMedida selectUnidadeMedida(int id) {

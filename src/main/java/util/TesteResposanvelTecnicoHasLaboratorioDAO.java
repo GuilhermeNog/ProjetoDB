@@ -1,16 +1,16 @@
 package util;
 
-import DAO.EnderecoDAO;
-import DAO.ResponsavelTecnicoDAO;
 import DAO.ResponsavelTecnicoHasLaboratorioDAO;
-import Model.Endereco;
 import Model.ResponsavelTecnicoHasLaboratorio;
+import Service.ResponsavelTecnicoHasLaboratorioService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteResposanvelTecnicoHasLaboratorioDAO {
     static ResponsavelTecnicoHasLaboratorioDAO responsavelTecnicoHasLaboratorioDAO = new ResponsavelTecnicoHasLaboratorioDAO();
+
+    static ResponsavelTecnicoHasLaboratorioService responsavelTecnicoHasLaboratorioService = new ResponsavelTecnicoHasLaboratorioService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -19,7 +19,7 @@ public class TesteResposanvelTecnicoHasLaboratorioDAO {
 
         //salvar
         ResponsavelTecnicoHasLaboratorio responsavelTecnicoHasLaboratorio = new ResponsavelTecnicoHasLaboratorio(1, 1, 1);
-        responsavelTecnicoHasLaboratorioDAO.insertResponsavelTecnicoHasLaboratorio(responsavelTecnicoHasLaboratorio);
+        responsavelTecnicoHasLaboratorioService.insert(responsavelTecnicoHasLaboratorio);
 
         //buscar por ID
         responsavelTecnicoHasLaboratorio = responsavelTecnicoHasLaboratorioDAO.selectResponsavelTecnicoHasLaboratorio(2);

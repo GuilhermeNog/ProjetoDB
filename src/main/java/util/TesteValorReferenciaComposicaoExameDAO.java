@@ -1,15 +1,16 @@
 package util;
 
-import DAO.ComposicaoDAO;
 import DAO.ValorReferenciaComposicaoExameDAO;
-import Model.Composicao;
 import Model.ValorReferenciaComposicaoExame;
+import Service.ValorReferenciaComposicaoExameService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteValorReferenciaComposicaoExameDAO {
     static ValorReferenciaComposicaoExameDAO valorReferenciaComposicaoExameDAO = new ValorReferenciaComposicaoExameDAO();
+
+    static ValorReferenciaComposicaoExameService valorReferenciaComposicaoExameService = new ValorReferenciaComposicaoExameService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -18,7 +19,7 @@ public class TesteValorReferenciaComposicaoExameDAO {
 
         //salvar
         ValorReferenciaComposicaoExame valorReferenciaComposicaoExame = new ValorReferenciaComposicaoExame(1, "teste", "teste", "teste", "teste", 1);
-        valorReferenciaComposicaoExameDAO.insertValorReferenciaComposicaoExame(valorReferenciaComposicaoExame);
+        valorReferenciaComposicaoExameService.insert(valorReferenciaComposicaoExame);
 
         //buscar por ID
         valorReferenciaComposicaoExame = valorReferenciaComposicaoExameDAO.selectValorReferenciaComposicaoExame(2);

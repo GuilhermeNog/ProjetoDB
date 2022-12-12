@@ -2,7 +2,6 @@ package DAO;
 
 import Model.TipoExame;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +32,7 @@ public class TipoExameDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertTipoExame(TipoExame entidade) {
+    public TipoExame insertTipoExame(TipoExame entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIPOEXAME_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.setString(2, entidade.getObservacao());
@@ -43,6 +42,7 @@ public class TipoExameDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return entidade;
     }
 
     public TipoExame selectTipoExame(int id) {

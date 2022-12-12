@@ -1,16 +1,16 @@
 package util;
 
-import DAO.HabilitacaoExameDAO;
 import DAO.MaterialExameDAO;
-import Model.HabilitacaoExame;
 import Model.MaterialExame;
+import Service.MaterialExameService;
 
-import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteMaterialExameDAO {
     static MaterialExameDAO materialExameDAO = new MaterialExameDAO();
+
+    static MaterialExameService materialExameService = new MaterialExameService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -19,7 +19,7 @@ public class TesteMaterialExameDAO {
 
         //salvar
         MaterialExame materialExame = new MaterialExame(1, "teste material", "teste observacao");
-        materialExameDAO.insertMaterialExame(materialExame);
+        materialExameService.insert(materialExame);
 
         //buscar por ID
         materialExame = materialExameDAO.selectMaterialExame(2);

@@ -1,6 +1,5 @@
 package DAO;
 
-import Model.ResponsavelTecnico;
 import Model.SiglaFormacao;
 
 import java.sql.PreparedStatement;
@@ -33,7 +32,7 @@ public class SiglaFormacaoDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertSiglaFormacao(SiglaFormacao entidade) {
+    public SiglaFormacao insertSiglaFormacao(SiglaFormacao entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_SIGLAFORMACAO_SQL, java.sql.Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, entidade.getSigla());
             preparedStatement.executeUpdate();
@@ -47,6 +46,8 @@ public class SiglaFormacaoDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+        return entidade;
     }
 
     public SiglaFormacao selectSiglaFormacao(int id) {

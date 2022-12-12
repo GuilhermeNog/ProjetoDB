@@ -33,7 +33,7 @@ public class ResultadoExameDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertResultadoExame(ResultadoExame entidade) {
+    public ResultadoExame insertResultadoExame(ResultadoExame entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_RESULTADOEXAME_SQL)) {
             preparedStatement.setDate(1, entidade.getDt_exame());
             preparedStatement.setString(2, entidade.getValor());
@@ -45,6 +45,7 @@ public class ResultadoExameDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return entidade;
     }
 
     public ResultadoExame selectResultadoExame(int id) {

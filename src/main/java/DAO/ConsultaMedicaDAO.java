@@ -1,7 +1,6 @@
 package DAO;
 
 import Model.ConsultaMedica;
-import Model.MedicoHasEspecialidade;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -34,7 +33,7 @@ public class ConsultaMedicaDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertConsultaMedica(ConsultaMedica entidade) {
+    public ConsultaMedica insertConsultaMedica(ConsultaMedica entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_CONSULTAMEDICA_SQL)) {
             preparedStatement.setDate(1, entidade.getDt_consulta());
             preparedStatement.setInt(2, entidade.getMedico_id());
@@ -46,6 +45,7 @@ public class ConsultaMedicaDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return entidade;
     }
 
     public ConsultaMedica selectConsultaMedica(int id) {

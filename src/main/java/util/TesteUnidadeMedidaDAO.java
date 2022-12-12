@@ -1,15 +1,16 @@
 package util;
 
-import DAO.ExameDAO;
 import DAO.UnidadeMedidaDAO;
-import Model.Exame;
 import Model.UnidadeMedida;
+import Service.UnidadeMedidaService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteUnidadeMedidaDAO {
     static UnidadeMedidaDAO unidadeMedidaDAO = new UnidadeMedidaDAO();
+
+    static UnidadeMedidaService unidadeMedidaService = new UnidadeMedidaService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -18,7 +19,7 @@ public class TesteUnidadeMedidaDAO {
 
         //salvar
         UnidadeMedida unidadeMedida = new UnidadeMedida(1, "teste descricao");
-        unidadeMedidaDAO.insertUnidadeMedida(unidadeMedida);
+        unidadeMedidaService.insert(unidadeMedida);
 
         //buscar por ID
         unidadeMedida = unidadeMedidaDAO.selectUnidadeMedida(2);

@@ -1,9 +1,8 @@
 package util;
 
 import DAO.LaudoDAO;
-import DAO.SolicitacaoExameDAO;
 import Model.Laudo;
-import Model.SolicitacaoExame;
+import Service.LaudoService;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -12,6 +11,8 @@ import java.util.List;
 public class TesteLaudoDAO {
     static LaudoDAO laudoDAO = new LaudoDAO();
 
+    static LaudoService laudoService = new LaudoService();
+
     public static void main(String[] args) throws SQLException {
 
         //count
@@ -19,7 +20,7 @@ public class TesteLaudoDAO {
 
         //salvar
         Laudo laudo = new Laudo(1, "teste", new Date(2023, 04, 26), "teste", 1);
-        laudoDAO.insertLaudo(laudo);
+        laudoService.insert(laudo);
 
         //buscar por ID
         laudo = laudoDAO.selectLaudo(2);

@@ -1,6 +1,5 @@
 package DAO;
 
-import Model.Endereco;
 import Model.ResponsavelTecnicoHasLaboratorio;
 
 import java.sql.PreparedStatement;

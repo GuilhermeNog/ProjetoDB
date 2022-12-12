@@ -1,8 +1,6 @@
 package util;
 
-import DAO.MedicoDAO;
 import DAO.MedicoHasEspecialidadeDAO;
-import Model.Medico;
 import Model.MedicoHasEspecialidade;
 import Service.MedicoHasEspecialidadeService;
 

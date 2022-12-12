@@ -2,12 +2,15 @@ package util;
 
 import DAO.ContatoDAO;
 import Model.Contato;
+import Service.ContatoService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteContatoDAO {
     static ContatoDAO contatoDAO = new ContatoDAO();
+
+    static ContatoService contatoService = new ContatoService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -16,7 +19,7 @@ public class TesteContatoDAO {
 
         //salvar
         Contato contato = new Contato(1, "(85) 90000-0000", 1);
-        contatoDAO.insertContato(contato);
+        contatoService.insert(contato);
 
         //buscar por ID
         contato = contatoDAO.selectContato(33);

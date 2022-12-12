@@ -1,11 +1,8 @@
 package util;
 
 import DAO.EspecialidadeDAO;
-import DAO.ResponsavelTecnicoHasLaboratorioDAO;
 import Model.Especialidade;
-import Model.ResponsavelTecnicoHasLaboratorio;
 import Service.EspecialidadeService;
-import Service.MedicoService;
 
 import java.sql.SQLException;
 import java.util.List;

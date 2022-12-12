@@ -1,9 +1,8 @@
 package util;
 
 import DAO.SolicitacaoExameDAO;
-import DAO.ValorReferenciaComposicaoExameDAO;
 import Model.SolicitacaoExame;
-import Model.ValorReferenciaComposicaoExame;
+import Service.SolitacaoExameService;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -12,6 +11,8 @@ import java.util.List;
 public class TesteSolicitacaoExameDAO {
     static SolicitacaoExameDAO solicitacaoExameDAO = new SolicitacaoExameDAO();
 
+    static SolitacaoExameService solitacaoExameService = new SolitacaoExameService();
+
     public static void main(String[] args) throws SQLException {
 
         //count
@@ -19,7 +20,7 @@ public class TesteSolicitacaoExameDAO {
 
         //salvar
         SolicitacaoExame solicitacaoExame = new SolicitacaoExame(1, "teste", 1, new Date(2023, 02, 5), 1, 1);
-        solicitacaoExameDAO.insertSolicitacaoExame(solicitacaoExame);
+        solitacaoExameService.insert(solicitacaoExame);
 
         //buscar por ID
         solicitacaoExame = solicitacaoExameDAO.selectSolicitacaoExame(2);

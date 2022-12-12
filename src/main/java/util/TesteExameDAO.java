@@ -1,15 +1,16 @@
 package util;
 
 import DAO.ExameDAO;
-import DAO.MaterialExameDAO;
 import Model.Exame;
-import Model.MaterialExame;
+import Service.ExameService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteExameDAO {
     static ExameDAO exameDAO = new ExameDAO();
+
+    static ExameService exameService = new ExameService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -18,7 +19,7 @@ public class TesteExameDAO {
 
         //salvar
         Exame exame = new Exame(1, 1, "teste descricao", 1, "metodo");
-        exameDAO.insertExame(exame);
+        exameService.insert(exame);
 
         //buscar por ID
         exame = exameDAO.selectExame(2);

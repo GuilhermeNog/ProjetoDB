@@ -32,7 +32,7 @@ public class ValorReferenciaComposicaoExameDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertValorReferenciaComposicaoExame(ValorReferenciaComposicaoExame entidade) {
+    public ValorReferenciaComposicaoExame insertValorReferenciaComposicaoExame(ValorReferenciaComposicaoExame entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_VALORREFERENCIACOMPOSICAOEXAME_SQL)) {
             preparedStatement.setString(1, entidade.getValor_minimo());
             preparedStatement.setString(2, entidade.getValor_maximo());
@@ -45,6 +45,7 @@ public class ValorReferenciaComposicaoExameDAO extends ConexaoDB {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return entidade;
     }
 
     public ValorReferenciaComposicaoExame selectValorReferenciaComposicaoExame(int id) {

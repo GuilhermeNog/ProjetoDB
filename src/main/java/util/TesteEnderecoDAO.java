@@ -1,15 +1,16 @@
 package util;
 
 import DAO.EnderecoDAO;
-import DAO.ResponsavelTecnicoDAO;
 import Model.Endereco;
-import Model.ResponsavelTecnico;
+import Service.EnderecoService;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class TesteEnderecoDAO {
     static EnderecoDAO enderecoDAO = new EnderecoDAO();
+
+    static EnderecoService enderecoService = new EnderecoService();
 
     public static void main(String[] args) throws SQLException {
 
@@ -18,7 +19,7 @@ public class TesteEnderecoDAO {
 
         //salvar
         Endereco endereco = new Endereco(1, "teste rua", "teste numero", "teste complemento", "teste bairro", "teste cep", "teste cidade", 1);
-        enderecoDAO.insertEndereco(endereco);
+        enderecoService.insert(endereco);
 
         //buscar por ID
         endereco = enderecoDAO.selectEndereco(1);
