@@ -61,7 +61,7 @@ public class MedicoHasEspecialidadeDAO extends ConexaoDB {
                 Integer medico_id = rs.getInt("medico_id");
                 Integer especialidade_id = rs.getInt("especialidade_id");
 
-                entidade = new MedicoHasEspecialidade(id, medico_id, especialidade_id);
+                entidade = new MedicoHasEspecialidade(medico_id, especialidade_id);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -76,11 +76,10 @@ public class MedicoHasEspecialidadeDAO extends ConexaoDB {
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_MEDICOHASESPECIALIDADE)) {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("id");
                 Integer medico_id = rs.getInt("medico_id");
                 Integer especialidade_id = rs.getInt("especialidade_id");
 
-                entidades.add(new MedicoHasEspecialidade(id, medico_id, especialidade_id));
+                entidades.add(new MedicoHasEspecialidade(medico_id, especialidade_id));
             }
         } catch (SQLException e) {
             printSQLException(e);

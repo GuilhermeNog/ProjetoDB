@@ -4,11 +4,11 @@ import java.math.BigInteger;
 
 public class HabilitacaoExame extends GenericModel {
     private String observacao;
-    private BigInteger custo;
+    private double custo;
     private Integer laboratorio_id;
     private Integer tipo_exame_id;
 
-    public HabilitacaoExame(Integer id, String observacao, BigInteger custo, Integer laboratorio_id, Integer tipo_exame_id) {
+    public HabilitacaoExame(Integer id, String observacao, double custo, Integer laboratorio_id, Integer tipo_exame_id) {
         this.observacao = observacao;
         this.custo = custo;
         this.laboratorio_id = laboratorio_id;
@@ -24,11 +24,11 @@ public class HabilitacaoExame extends GenericModel {
         this.observacao = observacao;
     }
 
-    public BigInteger getCusto() {
+    public double getCusto() {
         return custo;
     }
 
-    public void setCusto(BigInteger custo) {
+    public void setCusto(double custo) {
         this.custo = custo;
     }
 

@@ -19,7 +19,7 @@ public class TesteHabilitacaoExameDAO {
         System.out.println(habilitacaoExameDAO.count());
 
         //salvar
-        HabilitacaoExame habilitacaoExame = new HabilitacaoExame(1, "teste observacao", BigInteger.valueOf(10), 1, 1);
+        HabilitacaoExame habilitacaoExame = new HabilitacaoExame(1, "teste observacao", 100 , 1, 1);
         habilitacaoExameService.insert(habilitacaoExame);
 
         //buscar por ID

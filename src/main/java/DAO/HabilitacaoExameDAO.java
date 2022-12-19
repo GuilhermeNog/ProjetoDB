@@ -36,7 +36,7 @@ public class HabilitacaoExameDAO extends ConexaoDB {
     public HabilitacaoExame insertHabilitacaoExame(HabilitacaoExame entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_HABILITACAOEXAME_SQL)) {
             preparedStatement.setString(1, entidade.getObservacao());
-            preparedStatement.setObject(2, entidade.getCusto());
+            preparedStatement.setDouble(2, entidade.getCusto());
             preparedStatement.setInt(3, entidade.getLaboratorio_id());
             preparedStatement.setInt(4, entidade.getTipo_exame_id());
             preparedStatement.executeUpdate();
@@ -56,11 +56,11 @@ public class HabilitacaoExameDAO extends ConexaoDB {
 
             while (rs.next()) {
                 String observacao = rs.getString("observacao");
-                Object custo = rs.getObject("custo");
+                double custo = rs.getDouble("custo");
                 Integer laboratorio_id = rs.getInt("laboratorio_id");
                 Integer tipo_exame_id = rs.getInt("tipo_exame_id");
 
-                entidade = new HabilitacaoExame(id, observacao, (BigInteger) custo, laboratorio_id, tipo_exame_id);
+                entidade = new HabilitacaoExame(id, observacao, custo, laboratorio_id, tipo_exame_id);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -77,11 +77,11 @@ public class HabilitacaoExameDAO extends ConexaoDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String observacao = rs.getString("observacao");
-                Object custo = rs.getObject("custo");
+                double custo = rs.getDouble("custo");
                 Integer laboratorio_id = rs.getInt("laboratorio_id");
                 Integer tipo_exame_id = rs.getInt("tipo_exame_id");
 
-                entidades.add(new HabilitacaoExame(id, observacao, (BigInteger) custo, laboratorio_id, tipo_exame_id));
+                entidades.add(new HabilitacaoExame(id, observacao, custo, laboratorio_id, tipo_exame_id));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -103,7 +103,7 @@ public class HabilitacaoExameDAO extends ConexaoDB {
     public boolean updateHabilitacaoExame(HabilitacaoExame entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_HABILITACAOEXAME_SQL)) {
             statement.setString(1, entidade.getObservacao());
-            statement.setObject(2, entidade.getCusto());
+            statement.setDouble(2, entidade.getCusto());
             statement.setInt(3, entidade.getLaboratorio_id());
             statement.setInt(4, entidade.getTipo_exame_id());
 

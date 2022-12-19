@@ -18,12 +18,12 @@ public class TesteMedicoHasEspecialidadeDAO {
         System.out.println(medicoHasEspecialidadeDAO.count());
 
         //salvar
-        MedicoHasEspecialidade medicoHasEspecialidade = new MedicoHasEspecialidade(1, 6, 5);
+        MedicoHasEspecialidade medicoHasEspecialidade = new MedicoHasEspecialidade( 3, 3);
         medicoHasEspecialidadeService.insert(medicoHasEspecialidade);
 
         //buscar por ID
-        medicoHasEspecialidade = medicoHasEspecialidadeDAO.selectMedicoHasEspecialidade(1);
-        System.out.println(medicoHasEspecialidade);
+//        medicoHasEspecialidade = medicoHasEspecialidadeDAO.selectMedicoHasEspecialidade(1);
+//        System.out.println(medicoHasEspecialidade);
 
         //Update
 //        medicoHasEspecialidade.setMedico_id(1);
@@ -37,7 +37,7 @@ public class TesteMedicoHasEspecialidadeDAO {
         medicoHasEspecialidades.forEach(System.out::println);
 
         //Delete
-        medicoHasEspecialidadeDAO.deleteMedicoHasEspecialidade(2);
+        //medicoHasEspecialidadeDAO.deleteMedicoHasEspecialidade(2);
 
         medicoHasEspecialidadeDAO.selectAllMedicoHasEspecialidade().forEach(System.out::println);
     }

@@ -4,8 +4,7 @@ public class MedicoHasEspecialidade extends GenericModel {
     private Integer medico_id;
     private Integer especialidade_id;
 
-    public MedicoHasEspecialidade(Integer id, Integer medico_id, Integer especialidade_id) {
-        super.setId(id);
+    public MedicoHasEspecialidade(Integer medico_id, Integer especialidade_id) {
         this.medico_id = medico_id;
         this.especialidade_id = especialidade_id;
     }

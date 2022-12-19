@@ -61,7 +61,7 @@ public class ResponsavelTecnicoHasLaboratorioDAO extends ConexaoDB {
                 Integer responsavel_tecnico_id = rs.getInt("responsavel_tecnico_id");
                 Integer laboratorio_id = rs.getInt("laboratorio_id");
 
-                entidade = new ResponsavelTecnicoHasLaboratorio(id, responsavel_tecnico_id, laboratorio_id);
+                entidade = new ResponsavelTecnicoHasLaboratorio(responsavel_tecnico_id, laboratorio_id);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -76,11 +76,10 @@ public class ResponsavelTecnicoHasLaboratorioDAO extends ConexaoDB {
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_RESPONSAVELTECNICOHASLABORATORIO)) {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("id");
                 Integer responsavel_tecnico_id = rs.getInt("responsavel_tecnico_id");
                 Integer laboratorio_id = rs.getInt("laboratorio_id");
 
-                entidades.add(new ResponsavelTecnicoHasLaboratorio(id, responsavel_tecnico_id, laboratorio_id));
+                entidades.add(new ResponsavelTecnicoHasLaboratorio(responsavel_tecnico_id, laboratorio_id));
             }
         } catch (SQLException e) {
             printSQLException(e);

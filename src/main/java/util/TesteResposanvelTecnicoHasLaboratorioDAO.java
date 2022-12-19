@@ -18,12 +18,12 @@ public class TesteResposanvelTecnicoHasLaboratorioDAO {
         System.out.println(responsavelTecnicoHasLaboratorioDAO.count());
 
         //salvar
-        ResponsavelTecnicoHasLaboratorio responsavelTecnicoHasLaboratorio = new ResponsavelTecnicoHasLaboratorio(1, 1, 1);
+        ResponsavelTecnicoHasLaboratorio responsavelTecnicoHasLaboratorio = new ResponsavelTecnicoHasLaboratorio(3, 3);
         responsavelTecnicoHasLaboratorioService.insert(responsavelTecnicoHasLaboratorio);
 
         //buscar por ID
-        responsavelTecnicoHasLaboratorio = responsavelTecnicoHasLaboratorioDAO.selectResponsavelTecnicoHasLaboratorio(2);
-        System.out.println(responsavelTecnicoHasLaboratorio);
+//        responsavelTecnicoHasLaboratorio = responsavelTecnicoHasLaboratorioDAO.selectResponsavelTecnicoHasLaboratorio(2);
+//        System.out.println(responsavelTecnicoHasLaboratorio);
 
         //Update
 //        responsavelTecnicoHasLaboratorio.setResponsavel_tecnico_id(2);
@@ -37,7 +37,7 @@ public class TesteResposanvelTecnicoHasLaboratorioDAO {
         responsavelTecnicoHasLaboratorios.forEach(System.out::println);
 
         //Delete
-        responsavelTecnicoHasLaboratorioDAO.deleteResponsavelTecnicoHasLaboratorio(2);
+        //responsavelTecnicoHasLaboratorioDAO.deleteResponsavelTecnicoHasLaboratorio(1);
 
         responsavelTecnicoHasLaboratorioDAO.selectAllResponsavelTecnicoHasLaboratorio().forEach(System.out::println);
     }
